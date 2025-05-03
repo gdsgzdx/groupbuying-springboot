@@ -1,0 +1,35 @@
+server:
+  port: 5000
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/groupbuying?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:jiusan87}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  sql:
+    init:
+      mode: never
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 10MB
+      location: ${UPLOAD_PATH:./uploads}
+
+jwt:
+  secret: ${JWT_SECRET:your-secret-key}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:8080}
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: Authorization,Content-Type
+  exposed-headers: Authorization 

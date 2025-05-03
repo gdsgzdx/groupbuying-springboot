@@ -1,0 +1,40 @@
+# Node.js 依赖目录
+node_modules/
+
+# 前端构建产物
+frontend/dist/
+
+# 后端构建产物
+backend/target/
+
+# 后端日志、上传文件等运行时目录
+backend/logs/
+backend/uploads/
+
+# 日志文件
+*.log
+
+# Java 编译产物
+*.class
+*.jar
+*.war
+
+# IDE 配置
+.vscode/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 环境变量文件
+*.env
+
+# 其他常见忽略
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 可选：如不希望提交依赖锁文件可取消注释
+# frontend/package-lock.json
+# backend/package-lock.json

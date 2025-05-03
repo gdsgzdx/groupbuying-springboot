@@ -1,0 +1,134 @@
+{
+    "info": {
+        "name": "GroupBuy API Tests",
+        "description": "拼团功能接口测试集合",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "1. 用户登录",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/auth/login",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "auth", "login"]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"your_username\",\n    \"password\": \"your_password\"\n}"
+                }
+            }
+        },
+        {
+            "name": "2. 创建拼团",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_token_here"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/group-buys/create",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "group-buys", "create"],
+                    "query": [
+                        {
+                            "key": "productId",
+                            "value": "1"
+                        },
+                        {
+                            "key": "paymentPassword",
+                            "value": "your_payment_password"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "3. 加入拼团",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_token_here"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/group-buys/join",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "group-buys", "join"],
+                    "query": [
+                        {
+                            "key": "inviteCode",
+                            "value": "invite_code_here"
+                        },
+                        {
+                            "key": "paymentPassword",
+                            "value": "your_payment_password"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "4. 查看可用拼团",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_token_here"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/group-buys/available",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "group-buys", "available"],
+                    "query": [
+                        {
+                            "key": "productId",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "5. 查看拼团详情",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your_token_here"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/group-buys/{inviteCode}",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "group-buys", "{inviteCode}"]
+                }
+            }
+        }
+    ]
+} 
